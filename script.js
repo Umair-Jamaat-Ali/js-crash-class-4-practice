@@ -114,7 +114,7 @@ function fac(y) {
     if(y >=1){
         return y * fac( y - 1)
     }
-    return 1;
+    return 1 ;
 }
 
 console.log(fac(7));
@@ -131,3 +131,37 @@ let takeSqaure =+ console.log(sq(7));
 let result = takeSqaure ** 2;
 
 console.log(result);
+
+//// Scopes in js is global scope (whole file) and local scope ( inside function)
+//// Closures
+let aabb = 7; //// global scope
+
+    console.log(aabb); //// console.log(aabb) is a globle variable that is way this is working in everywhere..
+
+
+function print() {
+    let def = 14; //// local scope 
+     
+     return function () {
+        console.log(def);
+     }
+}
+
+// ////  console.log(def); this console.log is not working outside the function because (def) is a variable of function,
+// //// that is way they can not working outside the function
+let innerOutput = print();
+innerOutput();
+
+
+//// closures
+function clu(efg) {
+    return function (ghi) {
+        console.log(efg + ghi);
+    }
+    
+}
+
+let innerValue = clu(15);
+innerValue(55);
+let innerValue1 = clu(20);
+innerValue1(80);
